@@ -10,7 +10,7 @@ A modern, responsive website for The Hastag Cafe And Restaurant featuring a beau
 - **Home Delivery Service**: Two-column layout showcasing delivery services
 - **Gallery**: Beautiful image gallery with lightbox functionality
 - **Contact Form**: Contact information with social media integration
-- **Modern Animations**: Smooth animations and transitions using AOS library
+- **Modern Animations**: Smooth animations and transitions using custom CSS-based animations for better mobile performance
 
 ## 🛠️ Technologies Used
 
@@ -18,7 +18,7 @@ A modern, responsive website for The Hastag Cafe And Restaurant featuring a beau
 - CSS3 (Bootstrap 5.3)
 - JavaScript
 - Font Awesome Icons
-- AOS (Animate On Scroll)
+- Custom CSS-based animations (Intersection Observer API)
 - Owl Carousel
 - Lightbox2
 

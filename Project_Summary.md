@@ -40,7 +40,7 @@
 
 - **Loading Overlay**: Professional loading animation during form submissions
 - **Form Validation**: Visual validation states (valid/invalid indicators)
-- **Smooth Animations**: AOS (Animate On Scroll) library integration
+- **Smooth Animations**: Custom CSS-based animations with Intersection Observer API for better mobile performance
 - **Interactive Elements**: Hover effects and transitions throughout
 - **Mobile Optimization**: Touch-friendly design for mobile devices
 
@@ -68,7 +68,7 @@
 - Bootstrap 5.3 for responsive framework
 - EmailJS for email functionality
 - Font Awesome for icons
-- AOS for scroll animations
+- Custom CSS animations with Intersection Observer
 - Lightbox for image galleries
 - Google Fonts for typography
 
