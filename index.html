@@ -1,0 +1,3452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hastag Cafe And Restaurant | Premium Dining in Ashti</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary: #E63946;
+            --secondary: #F77F00;
+            --accent: #457B9D;
+            --dark: #1D3557;
+            --light: #F8F9FA;
+            --cream: #FDF0D5;
+            --gold: #FFD700;
+            --success: #28a745;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            color: #333;
+            background-color: var(--cream);
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Enhanced Navigation */
+        .navbar {
+            transition: all 0.5s ease;
+            padding: 20px 0;
+            background: linear-gradient(135deg, rgba(29, 53, 87, 0.95), rgba(69, 123, 157, 0.95));
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            background: linear-gradient(135deg, rgba(29, 53, 87, 0.98), rgba(69, 123, 157, 0.98));
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 2.2rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-brand i {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 2.5rem;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            margin: 0 15px;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: var(--secondary);
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--gold));
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(29, 53, 87, 0.4)),
+                url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 5.5rem;
+            margin-bottom: 25px;
+            animation: fadeInUp 1s ease;
+            background: linear-gradient(135deg, #fff, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            max-width: 600px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-buttons {
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero-primary {
+            background: linear-gradient(135deg, var(--primary), #c1121f);
+            border: none;
+            padding: 18px 40px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-hero-primary:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-hero-primary:hover:before {
+            left: 100%;
+        }
+
+        .btn-hero-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(230, 57, 70, 0.4);
+            color: white;
+        }
+
+        .btn-hero-outline {
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-hero-outline:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(247, 127, 0, 0.3);
+        }
+
+        .btn-hero-secondary {
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        .btn-hero-secondary:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(247, 127, 0, 0.3);
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            z-index: 1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            bottom: 20%;
+            left: 10%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            top: 60%;
+            right: 20%;
+            animation-delay: 4s;
+        }
+
+        .floating-element img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--secondary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Enhanced Sections */
+        .section-padding {
+            padding: 120px 0;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 80px;
+            color: var(--dark);
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Enhanced Cards */
+        .feature-card {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            height: 100%;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(230, 57, 70, 0.05), transparent);
+            transition: left 0.5s;
+        }
+
+        .feature-card:hover:before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            transition: all 0.5s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotateY(180deg);
+        }
+
+        /* Menu Cards */
+        .menu-card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            margin-bottom: 40px;
+            background: white;
+            position: relative;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu-card img {
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.8s ease;
+        }
+
+        .menu-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .menu-card .card-body {
+            padding: 30px;
+        }
+
+        .menu-card h5 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .menu-card .price {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .menu-card .description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .badge-special {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--secondary), var(--gold));
+            color: var(--dark);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Table Booking Modal */
+        .modal-content {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-bottom: none;
+            padding: 30px;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        .btn-close {
+            filter: invert(1);
+            opacity: 0.8;
+        }
+
+        .modal-body {
+            padding: 40px;
+            background: white;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-control,
+        .form-select {
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            box-shadow: 0 0 0 0.2rem rgba(230, 57, 70, 0.25);
+            border-color: var(--primary);
+            background: white;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #c1121f);
+            border: none;
+            padding: 15px 30px;
+            font-weight: 600;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.3);
+            background: linear-gradient(135deg, #c1121f, var(--primary));
+        }
+
+        .btn-outline-primary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 15px 30px;
+            font-weight: 600;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.3);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--dark), var(--accent));
+            color: white;
+            padding: 50px 40px;
+            padding-bottom: 0px;
+            border-radius: 20px;
+            height: 100%;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-right: 25px;
+            width: 60px;
+            text-align: center;
+        }
+
+        /* Gallery */
+        .gallery-item {
+            margin-bottom: 30px;
+            overflow: hidden;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            transition: all 0.5s ease;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.8), rgba(247, 127, 0, 0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            font-size: 3rem;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark), #0d1929);
+            color: white;
+            padding: 100px 0 30px;
+            position: relative;
+        }
+
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--gold));
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .footer-logo i {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Success Message */
+        .alert-success {
+            background: linear-gradient(135deg, var(--success), #20c997);
+            border: none;
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .section-padding {
+                padding: 80px 0;
+            }
+
+            .floating-element {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 700px;
+                text-align: center;
+                padding: 100px 0;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .contact-form,
+            .contact-info {
+                padding: 30px;
+            }
+
+            .modal-body {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .feature-card {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Modal Enhancements */
+        .modal-content {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #fff, #f8f9fa);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--dark), var(--accent));
+            color: white;
+            border-radius: 20px 20px 0 0;
+            padding: 20px 30px;
+        }
+
+        .modal-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-footer {
+            padding: 20px 30px;
+            border-top: 1px solid #e9ecef;
+            border-radius: 0 0 20px 20px;
+        }
+
+        /* Form Enhancements */
+        .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 12px 15px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 0.2rem rgba(69, 123, 157, 0.25);
+            background: #fff;
+        }
+
+        .form-control.is-valid {
+            border-color: var(--success);
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='m2.3 6.73.58-.58L4.25 5l1.37 1.15.58-.58L4.5 3.5z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right calc(0.375em + 0.1875rem) center;
+            background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+        }
+
+        .form-control.is-invalid {
+            border-color: var(--primary);
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23e63946'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath d='m5.8 4.6 2.4 2.4m-2.4 0 2.4-2.4'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right calc(0.375em + 0.1875rem) center;
+            background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .btn-outline-warning {
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            font-weight: 600;
+            border-radius: 25px;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-warning:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(247, 127, 0, 0.3);
+        }
+
+        /* Custom Alert Styling */
+        .custom-alert {
+            border-radius: 10px;
+            border: none;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .alert-success {
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            color: #155724;
+        }
+
+        .alert-danger {
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+            color: #721c24;
+        }
+
+        /* Loading Animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .loading-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top: 5px solid var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Hover effects for navigation buttons */
+        .navbar .btn-outline-warning:hover {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced Book Table Button */
+        .btn-book-table {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            padding: 12px 25px;
+            font-weight: 600;
+            border-radius: 25px;
+            color: white;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-book-table:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-book-table:hover:before {
+            left: 100%;
+        }
+
+        .btn-book-table:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(230, 57, 70, 0.4);
+            color: white;
+        }
+
+        /* Enhanced Menu Tabs */
+        .menu-tabs .nav-link {
+            background: white;
+            color: #333;
+            border: 2px solid #e9ecef;
+            margin: 0 5px;
+            border-radius: 25px;
+            padding: 12px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-tabs .nav-link:hover {
+            background: #f8f9fa;
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .menu-tabs .nav-link.active {
+            background: #000;
+            color: white;
+            border-color: #000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Today's Specials Tabs */
+        .specials-tabs .nav-link {
+            background: white;
+            color: #333;
+            border: 2px solid #e9ecef;
+            margin: 0 10px;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .specials-tabs .nav-link:hover {
+            background: #f8f9fa;
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .specials-tabs .nav-link.active {
+            background: #000;
+            color: white;
+            border-color: #000;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animated Counters */
+        .stats-section {
+            background: linear-gradient(135deg, var(--dark), var(--accent));
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+        }
+
+        .stat-item h5 {
+            color: white;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Customer Reviews Slider */
+        .testimonials-slider {
+            position: relative;
+            overflow: hidden;
+            padding: 40px 0;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .testimonial-slide.active {
+            opacity: 1;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(230, 57, 70, 0.1);
+        }
+
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 40px;
+            font-size: 80px;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            opacity: 0.3;
+        }
+
+        .rating {
+            margin-bottom: 20px;
+        }
+
+        .rating i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin: 0 2px;
+        }
+
+        .testimonial-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid var(--secondary);
+        }
+
+        .testimonial-author h5 {
+            margin: 0;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .testimonial-author .text-muted {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        /* Testimonial Owl Carousel Navigation */
+        #testimonial-slider .owl-nav {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #testimonial-slider .owl-nav button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            font-size: 18px;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #testimonial-slider .owl-nav button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.4);
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+        }
+
+        #testimonial-slider .owl-nav button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        #testimonial-slider .owl-dots {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #testimonial-slider .owl-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(230, 57, 70, 0.3);
+            margin: 0 5px;
+            transition: all 0.3s ease;
+            border: none;
+            display: inline-block;
+        }
+
+        #testimonial-slider .owl-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        #testimonial-slider .owl-dot:hover {
+            background: var(--secondary);
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Owl Carousel Navigation Styling */
+        .owl-carousel .owl-nav {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .owl-carousel .owl-nav button.owl-prev,
+        .owl-carousel .owl-nav button.owl-next {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .owl-carousel .owl-nav button.owl-prev:hover,
+        .owl-carousel .owl-nav button.owl-next:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(230, 57, 70, 0.4);
+        }
+
+        .owl-carousel .owl-nav button.owl-prev:before,
+        .owl-carousel .owl-nav button.owl-next:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .owl-carousel .owl-nav button.owl-prev:hover:before,
+        .owl-carousel .owl-nav button.owl-next:hover:before {
+            left: 100%;
+        }
+
+        .owl-carousel .owl-dots {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .owl-carousel .owl-dots .owl-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .owl-carousel .owl-dots .owl-dot.active,
+        .owl-carousel .owl-dots .owl-dot:hover {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+
+        /* Contact Form Enhancement */
+        .contact-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            position: relative;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(230, 57, 70, 0.1);
+            position: relative;
+        }
+
+        .contact-form:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 25px 25px 0 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--dark), var(--accent));
+            color: white;
+            padding: 50px;
+            border-radius: 25px;
+            height: 100%;
+            position: relative;
+        }
+
+        /* Footer Enhancements */
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 0;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(10px);
+            padding-left: 10px;
+        }
+
+        .footer-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: -3px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover:after {
+            width: 100%;
+        }
+
+        /* Social Icons Enhancement */
+        .social-icon {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none !important;
+        }
+
+        .social-icon:hover {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            color: white !important;
+            transform: translateY(-5px) scale(1.1) rotate(360deg);
+        }
+
+        /* Feature Section for Home Delivery */
+        .delivery-feature {
+            background: linear-gradient(135deg, var(--cream), white);
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .delivery-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 3px solid var(--secondary);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .delivery-card:before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(247, 127, 0, 0.1), transparent);
+            transition: top 0.5s ease;
+        }
+
+        .delivery-card:hover:before {
+            top: 100%;
+        }
+
+        .delivery-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .delivery-icon {
+            font-size: 4rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Remove Chef Section Styles */
+        .chef-card {
+            display: none;
+        }
+
+        /* Inline Menu Buttons */
+        .btn-inline {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-inline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-inline:hover:before {
+            left: 100%;
+        }
+
+        .btn-inline:hover {
+            background: linear-gradient(135deg, var(--secondary), var(--gold));
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3);
+            color: white;
+        }
+
+        /* Quick Order Button Animation */
+        .quick-order-btn {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(230, 57, 70, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(230, 57, 70, 0);
+            }
+        }
+
+        /* Home Delivery Section Styles */
+        .delivery-content h3 {
+            color: var(--dark);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+        }
+
+        .delivery-features {
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            padding: 15px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(230, 57, 70, 0.1);
+        }
+
+        .feature-item:hover {
+            background: white;
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .delivery-image-container {
+            position: relative;
+        }
+
+        .delivery-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--secondary), var(--gold));
+            color: var(--dark);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: bounce 2s infinite;
+        }
+
+        .delivery-timing {
+            margin-top: 40px;
+        }
+
+        .timing-item {
+            padding: 20px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, var(--cream), white);
+            border: 2px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .timing-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .timing-item h6 {
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .delivery-buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .delivery-buttons .btn {
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .delivery-buttons .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-card .btn-inline {
+            position: static;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span>#</span>The Hastag Cafe
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-nowrap">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#specials">Specials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#delivery">Home Delivery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-book-table text-nowrap ms-3" id="bookTableBtn" data-bs-toggle="modal"
+                            data-bs-target="#bookingModal">
+                            <i class="fas fa-calendar-alt me-2"></i>Book Table
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="display-1 fw-bold mb-4" data-aos="fade-up">Experience Culinary Excellence at The Hastag
+                        Cafe</h1>
+                    <p class="subtitle lead mb-4" data-aos="fade-up" data-aos-delay="200">Discover a world of flavors
+                        crafted with passion and the finest ingredients in the heart of
+                        Ashti. Our restaurant offers an unforgettable dining experience with a perfect blend of
+                        traditional recipes and modern culinary techniques.</p>
+                    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                        <button class="btn-hero-primary me-3" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                            <i class="fas fa-calendar-alt me-2"></i>Book a Table
+                        </button>
+                        <a href="#menu" class="btn-hero-secondary">
+                            <i class="fas fa-utensils me-2"></i>View Menu
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating food elements -->
+        <div class="position-absolute" style="bottom: 100px; right: 100px; z-index: 1;">
+            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1371&q=80"
+                alt="Burger" width="120" class="rounded-circle floating" style="border: 5px solid var(--secondary);">
+        </div>
+
+        <div class="position-absolute" style="top: 150px; left: 100px; z-index: 1;">
+            <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                alt="Coffee" width="100" class="rounded-circle floating floating-delay-1"
+                style="border: 5px solid var(--secondary);">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Our Story</h2>
+                    <p class="lead">Founded in 2015, The Hastag Cafe has been serving the Ashti community with love and
+                        delicious food for nearly a decade.</p>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="about-item">
+                        <div class="about-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h4>Our Philosophy</h4>
+                        <p>We believe in creating memorable dining experiences by combining fresh, locally-sourced
+                            ingredients with innovative culinary techniques. Our chefs pour their passion into every
+                            dish, ensuring each bite tells a story.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4" data-aos="fade-left">
+                    <div class="about-item">
+                        <div class="about-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h4>Farm to Table</h4>
+                        <p>We partner with local farmers and producers to bring you the freshest ingredients. Our
+                            seasonal menu changes reflect the best produce available, supporting our community while
+                            delivering exceptional flavors.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4" data-aos="fade-right" data-aos-delay="100">
+                    <div class="about-item">
+                        <div class="about-icon">
+                            <i class="fas fa-wine-glass-alt"></i>
+                        </div>
+                        <h4>Culinary Excellence</h4>
+                        <p>Our team of experienced chefs brings together diverse culinary backgrounds to create a menu
+                            that celebrates both traditional Maharashtrian cuisine and international flavors.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4" data-aos="fade-left" data-aos-delay="100">
+                    <div class="about-item">
+                        <div class="about-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Community Focus</h4>
+                        <p>More than just a restaurant, we're a gathering place for the Ashti community. We host
+                            cultural events, live music nights, and cooking workshops to bring people together.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="section-padding bg-light" id="menu">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Our Menu</h2>
+                    <p class="lead">Explore our carefully crafted selection of dishes</p>
+                </div>
+            </div>
+            <ul class="nav nav-tabs justify-content-center mb-5 menu-tabs" id="menuTabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#breakfast">
+                        <i class="fas fa-coffee me-2"></i>Breakfast
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#lunch">
+                        <i class="fas fa-hamburger me-2"></i>Lunch
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#dinner">
+                        <i class="fas fa-utensils me-2"></i>Dinner
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#beverages">
+                        <i class="fas fa-glass-cheers me-2"></i>Beverages
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#desserts">
+                        <i class="fas fa-ice-cream me-2"></i>Desserts
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="breakfast">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                            <div class="menu-card">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1494&q=80"
+                                        class="card-img-top" alt="Avocado Toast">
+                                    <span class="badge-tag">Chef's Special</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Avocado Toast Deluxe</h5>
+                                    <p class="text-muted">Sourdough bread with smashed avocado, cherry tomatoes,
+                                        microgreens, feta cheese, and a poached egg</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹280</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                                    class="card-img-top" alt="Pancakes">
+                                <div class="card-body">
+                                    <h5>Classic Pancakes Stack</h5>
+                                    <p class="text-muted">Fluffy buttermilk pancakes served with maple syrup, fresh
+                                        berries, and whipped cream</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹240</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="menu-card">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                        class="card-img-top" alt="Breakfast Bowl">
+                                    <span class="badge-tag">Healthy Choice</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Superfood Breakfast Bowl</h5>
+                                    <p class="text-muted">Greek yogurt with house-made granola, seasonal fruits, chia
+                                        seeds, flaxseeds, and local honey</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹260</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80"
+                                    class="card-img-top" alt="Omelette">
+                                <div class="card-body">
+                                    <h5>Farmers Omelette</h5>
+                                    <p class="text-muted">Three-egg omelette with seasonal vegetables, goat cheese, and
+                                        fresh herbs</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹220</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-card">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1310&q=80"
+                                        class="card-img-top" alt="Eggs Benedict">
+                                    <span class="badge-tag">Popular</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Eggs Benedict</h5>
+                                    <p class="text-muted">English muffin with Canadian bacon, poached eggs, and homemade
+                                        hollandaise sauce</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹290</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
+                                    class="card-img-top" alt="French Toast">
+                                <div class="card-body">
+                                    <h5>Stuffed French Toast</h5>
+                                    <p class="text-muted">Brioche bread stuffed with cream cheese and berries, dusted
+                                        with powdered sugar</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹250</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="lunch">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                            <div class="menu-card">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1399&q=80"
+                                        class="card-img-top" alt="Grilled Chicken Salad">
+                                    <span class="badge-tag">Healthy</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Grilled Chicken Caesar Salad</h5>
+                                    <p class="text-muted">Fresh romaine lettuce with grilled chicken, parmesan cheese,
+                                        croutons, and caesar dressing</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹380</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                                    class="card-img-top" alt="Margherita Pizza">
+                                <div class="card-body">
+                                    <h5>Wood-Fired Margherita Pizza</h5>
+                                    <p class="text-muted">Fresh tomato sauce, mozzarella cheese, basil leaves on
+                                        wood-fired thin crust</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹420</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="menu-card">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1681&q=80"
+                                        class="card-img-top" alt="Pasta Carbonara">
+                                    <span class="badge-tag">Popular</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Creamy Chicken Carbonara</h5>
+                                    <p class="text-muted">Fettuccine pasta with grilled chicken, bacon, parmesan in rich
+                                        cream sauce</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹450</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                                    class="card-img-top" alt="Fish Curry">
+                                <div class="card-body">
+                                    <h5>Maharashtrian Fish Curry</h5>
+                                    <p class="text-muted">Traditional Konkani fish curry with coconut, served with
+                                        steamed rice</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹390</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80"
+                                    class="card-img-top" alt="Paneer Butter Masala">
+                                <div class="card-body">
+                                    <h5>Paneer Butter Masala</h5>
+                                    <p class="text-muted">Rich and creamy cottage cheese curry with aromatic spices and
+                                        butter naan</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹320</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1563379091339-03246963d171?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                    class="card-img-top" alt="Sandwich">
+                                <div class="card-body">
+                                    <h5>Club Sandwich</h5>
+                                    <p class="text-muted">Triple-layer sandwich with chicken, bacon, lettuce, tomato,
+                                        and mayo</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹280</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="dinner">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                            <div class="menu-card">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                        class="card-img-top" alt="Lamb Biryani">
+                                    <span class="badge-tag">Chef's Special</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Mutton Biryani Deluxe</h5>
+                                    <p class="text-muted">Aromatic basmati rice with tender mutton, saffron, and
+                                        traditional spices</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹580</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                                    class="card-img-top" alt="Grilled Salmon">
+                                <div class="card-body">
+                                    <h5>Herb-Crusted Salmon</h5>
+                                    <p class="text-muted">Fresh Atlantic salmon with herb crust, asparagus, and lemon
+                                        butter sauce</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹720</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="menu-card">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                                        class="card-img-top" alt="Butter Chicken">
+                                    <span class="badge-tag">Popular</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Butter Chicken</h5>
+                                    <p class="text-muted">Creamy tomato-based curry with tender chicken pieces and
+                                        aromatic spices</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹420</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1504973960431-1c467e159aa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                    class="card-img-top" alt="Risotto">
+                                <div class="card-body">
+                                    <h5>Mushroom Risotto</h5>
+                                    <p class="text-muted">Creamy arborio rice with wild mushrooms, parmesan, and truffle
+                                        oil</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹480</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80"
+                                    class="card-img-top" alt="Dal Tadka">
+                                <div class="card-body">
+                                    <h5>Dal Tadka</h5>
+                                    <p class="text-muted">Traditional yellow lentils tempered with spices, served with
+                                        jeera rice</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹220</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                                    class="card-img-top" alt="Lamb Curry">
+                                <div class="card-body">
+                                    <h5>Lamb Rogan Josh</h5>
+                                    <p class="text-muted">Tender lamb cooked in rich aromatic gravy with yogurt and
+                                        kashmiri spices</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹650</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="beverages">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                            <div class="menu-card">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                                        class="card-img-top" alt="Cappuccino">
+                                    <span class="badge-tag">Popular</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Artisan Cappuccino</h5>
+                                    <p class="text-muted">Rich espresso with steamed milk foam and cocoa powder dusting
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹180</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1450&q=80"
+                                    class="card-img-top" alt="Fresh Juice">
+                                <div class="card-body">
+                                    <h5>Fresh Orange Juice</h5>
+                                    <p class="text-muted">Freshly squeezed orange juice packed with vitamin C and
+                                        natural goodness</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹120</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="menu-card">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                                        class="card-img-top" alt="Smoothie">
+                                    <span class="badge-tag">Healthy</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Mango Smoothie</h5>
+                                    <p class="text-muted">Creamy mango smoothie with yogurt, honey, and fresh mint</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹150</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
+                                    class="card-img-top" alt="Masala Chai">
+                                <div class="card-body">
+                                    <h5>Masala Chai</h5>
+                                    <p class="text-muted">Traditional Indian spiced tea with cardamom, ginger, and
+                                        cinnamon</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹80</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                    class="card-img-top" alt="Cold Coffee">
+                                <div class="card-body">
+                                    <h5>Iced Coffee Delight</h5>
+                                    <p class="text-muted">Chilled coffee with vanilla ice cream, whipped cream, and
+                                        chocolate syrup</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹200</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                                    class="card-img-top" alt="Lassi">
+                                <div class="card-body">
+                                    <h5>Sweet Lassi</h5>
+                                    <p class="text-muted">Traditional yogurt-based drink sweetened with sugar and
+                                        cardamom</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹100</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="desserts">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                            <div class="menu-card">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80"
+                                        class="card-img-top" alt="Chocolate Cake">
+                                    <span class="badge-tag">Chef's Special</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Chocolate Lava Cake</h5>
+                                    <p class="text-muted">Warm chocolate cake with molten center, served with vanilla
+                                        ice cream</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹320</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
+                                    class="card-img-top" alt="Cheesecake">
+                                <div class="card-body">
+                                    <h5>New York Cheesecake</h5>
+                                    <p class="text-muted">Classic creamy cheesecake with berry compote and graham
+                                        cracker crust</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹280</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="menu-card">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                        class="card-img-top" alt="Ice Cream">
+                                    <span class="badge-tag">Popular</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Kulfi Trio</h5>
+                                    <p class="text-muted">Traditional Indian ice cream in three flavors: pistachio,
+                                        mango, and cardamom</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹200</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1564&q=80"
+                                    class="card-img-top" alt="Tiramisu">
+                                <div class="card-body">
+                                    <h5>Classic Tiramisu</h5>
+                                    <p class="text-muted">Italian dessert with coffee-soaked ladyfingers and mascarpone
+                                        cream</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹350</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                                    class="card-img-top" alt="Gulab Jamun">
+                                <div class="card-body">
+                                    <h5>Gulab Jamun</h5>
+                                    <p class="text-muted">Traditional Indian sweet dumplings in cardamom-rose syrup</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹120</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="menu-card">
+                                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1465&q=80"
+                                    class="card-img-top" alt="Fruit Tart">
+                                <div class="card-body">
+                                    <h5>Fresh Fruit Tart</h5>
+                                    <p class="text-muted">Buttery pastry shell with vanilla custard and seasonal fresh
+                                        fruits</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">₹250</span>
+                                        <button class="btn btn-inline quick-order-btn">
+                                            <i class="fas fa-shopping-cart me-1"></i>Quick Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specials Section -->
+    <section class="section-padding" id="specials">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Today's Specials</h2>
+                    <p class="lead">Chef's curated selection of the day</p>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <ul class="nav nav-pills mb-5 justify-content-center specials-tabs" id="specials-tab">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="pill" href="#special1">Starter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" href="#special2">Main Course</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" href="#special3">Dessert</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="special1">
+                            <div class="row align-items-center">
+                                <div class="col-lg-5" data-aos="fade-right">
+                                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                        alt="Special Starter" class="img-fluid rounded-3 shadow">
+                                </div>
+                                <div class="col-lg-7" data-aos="fade-left">
+                                    <h3 class="mt-4 mt-lg-0">Truffle Arancini</h3>
+                                    <p class="fst-italic">Crispy risotto balls infused with black truffle and
+                                        mozzarella, served with roasted garlic aioli</p>
+                                    <p>Our chef's twist on the classic Italian arancini, these golden fried risotto
+                                        balls are elevated with the earthy aroma of black truffle. The creamy mozzarella
+                                        center pairs perfectly with our house-made roasted garlic aioli.</p>
+                                    <p><strong>Ingredients:</strong> Arborio rice, black truffle, mozzarella,
+                                        breadcrumbs, eggs, garlic, olive oil, lemon</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-4">
+                                        <span class="price" style="font-size: 1.5rem;">₹320</span>
+                                        <button class="btn btn-primary">Order Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="special2">
+                            <div class="row align-items-center">
+                                <div class="col-lg-5">
+                                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                                        alt="Special Main" class="img-fluid rounded-3 shadow">
+                                </div>
+                                <div class="col-lg-7">
+                                    <h3 class="mt-4 mt-lg-0">Herb-Crusted Salmon</h3>
+                                    <p class="fst-italic">Fresh salmon with herb crust, served with asparagus and lemon
+                                        beurre blanc</p>
+                                    <p>This signature dish features locally-sourced salmon coated in a fragrant herb
+                                        crust, pan-seared to perfection. Accompanied by seasonal asparagus and our
+                                        delicate lemon beurre blanc sauce.</p>
+                                    <p><strong>Ingredients:</strong> Fresh salmon, parsley, dill, breadcrumbs,
+                                        asparagus, butter, white wine, lemon</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-4">
+                                        <span class="price" style="font-size: 1.5rem;">₹580</span>
+                                        <button class="btn btn-primary">Order Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="special3">
+                            <div class="row align-items-center">
+                                <div class="col-lg-5">
+                                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80"
+                                        alt="Special Dessert" class="img-fluid rounded-3 shadow">
+                                </div>
+                                <div class="col-lg-7">
+                                    <h3 class="mt-4 mt-lg-0">Chocolate Soufflé</h3>
+                                    <p class="fst-italic">Warm chocolate soufflé with vanilla bean ice cream and
+                                        raspberry coulis</p>
+                                    <p>Our legendary chocolate soufflé, baked to order, with a molten center. Served
+                                        with homemade vanilla bean ice cream and a tangy raspberry coulis to balance the
+                                        richness.</p>
+                                    <p><strong>Ingredients:</strong> Dark chocolate, eggs, sugar, butter, vanilla bean,
+                                        cream, raspberries</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-4">
+                                        <span class="price" style="font-size: 1.5rem;">₹350</span>
+                                        <button class="btn btn-primary">Order Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!-- Home Delivery Section -->
+    <section class="section-padding bg-light" id="delivery">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Home Delivery Service</h2>
+                    <p class="lead">Enjoy our delicious food from the comfort of your home</p>
+                </div>
+            </div>
+
+            <div class="row mt-5 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="delivery-content">
+                        <h3 class="mb-4">Fast & Fresh Delivery</h3>
+                        <p class="mb-4">Experience the same exceptional quality and taste of The Hastag Cafe from the
+                            comfort of your home. Our professional delivery team ensures your food arrives hot, fresh,
+                            and perfectly packaged.</p>
+
+                        <div class="delivery-features">
+                            <div class="feature-item d-flex align-items-center mb-3">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-clock text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">30-45 Minutes Delivery</h6>
+                                    <p class="text-muted mb-0">Quick and reliable delivery service</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item d-flex align-items-center mb-3">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">5km Delivery Radius</h6>
+                                    <p class="text-muted mb-0">We deliver within 5km of our restaurant</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item d-flex align-items-center mb-3">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-shield-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Safe & Hygienic</h6>
+                                    <p class="text-muted mb-0">Contactless delivery with safety protocols</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item d-flex align-items-center mb-4">
+                                <div class="feature-icon me-3">
+                                    <i class="fas fa-rupee-sign text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Free Delivery</h6>
+                                    <p class="text-muted mb-0">On orders above ₹500</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="delivery-buttons">
+                            <a href="tel:+917666862678" class="btn btn-primary me-3">
+                                <i class="fas fa-phone me-2"></i>Call to Order
+                            </a>
+                            <a href="https://wa.me/917666862678" class="btn btn-success" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>WhatsApp Order
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="delivery-image-container">
+                        <img src="https://cdn.pixabay.com/photo/2015/11/06/12/52/roller-1027345_1280.jpg"
+                            alt="Home Delivery" class="img-fluid rounded-3 shadow-lg">
+                        <div class="delivery-badge">
+                            <i class="fas fa-motorcycle"></i>
+                            <span>Fast Delivery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3" data-aos="fade-up">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="3">3</div>
+                        <h5>Chefs</h5>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="120">120</div>
+                        <h5>Menu Items</h5>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="2">2</div>
+                        <h5>Years Experience</h5>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="5000">5000</div>
+                        <h5>Happy Customers</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section-padding" id="gallery">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Our Gallery</h2>
+                    <p class="lead">A visual journey through The Hastag Cafe experience</p>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-4 col-sm-6" data-aos="zoom-in">
+                    <div class="gallery-item">
+                        <a href="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            data-lightbox="gallery" data-title="Our Dining Area">
+                            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                alt="Dining Area">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus text-white fa-2x"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="gallery-item">
+                        <a href="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            data-lightbox="gallery" data-title="Cozy Ambiance">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                alt="Ambiance">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus text-white fa-2x"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="gallery-item">
+                        <a href="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                            data-lightbox="gallery" data-title="Signature Dishes">
+                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                                alt="Signature Dish">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus text-white fa-2x"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6" data-aos="zoom-in">
+                    <div class="gallery-item">
+                        <a href="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                            data-lightbox="gallery" data-title="Bar & Beverages">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                                alt="Bar">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus text-white fa-2x"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="gallery-item">
+                        <a href="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            data-lightbox="gallery" data-title="Pasta Special">
+                            <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                alt="Pasta">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus text-white fa-2x"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="gallery-item">
+                        <a href="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                            data-lightbox="gallery" data-title="Dessert Selection">
+                            <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                                alt="Desserts">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus text-white fa-2x"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">What Our Customers Say</h2>
+                    <p class="lead">Hear from our valued guests about their experiences</p>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <div class="row g-4">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="testimonial-card h-100">
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p>"The Hastag Cafe is hands down the best dining experience in Ashti. The avocado toast
+                                    is
+                                    to die for, and the coffee is always perfect. The ambiance is cozy yet
+                                    sophisticated,
+                                    perfect for both casual meetups and special occasions."</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah K.">
+                                    <div>
+                                        <h5>Sarah K.</h5>
+                                        <p class="text-muted">Regular Customer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="testimonial-card h-100">
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p>"I hosted my daughter's birthday party here and the staff went above and beyond to
+                                    make
+                                    it special. The food was exceptional - fresh, flavorful, and beautifully presented.
+                                    Everyone raved about the herb-crusted salmon!"</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Rahul P.">
+                                    <div>
+                                        <h5>Rahul P.</h5>
+                                        <p class="text-muted">Event Host</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="testimonial-card h-100">
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <p>"As a food blogger, I've visited countless restaurants, but The Hastag Cafe stands
+                                    out
+                                    for its consistency and creativity. Their seasonal menu changes keep me coming back,
+                                    and
+                                    their commitment to local ingredients is commendable."</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya M.">
+                                    <div>
+                                        <h5>Priya M.</h5>
+                                        <p class="text-muted">Food Blogger</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="testimonial-card h-100">
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p>"Absolutely love the vibe and the food here! The staff is friendly and the desserts
+                                    are a must-try. Highly recommended for families and friends."</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Amit S.">
+                                    <div>
+                                        <h5>Amit S.</h5>
+                                        <p class="text-muted">Local Guide</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section class="section-padding" id="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Contact Us</h2>
+                    <p class="lead">We'd love to hear from you</p>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Get in Touch</h4>
+                        <div class="d-flex mb-4">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5>Address</h5>
+                                <p>Shop No 01, Nagar, Beed Road, near Pokale Complex, Ashti, Maharashtra 414203</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex mb-4">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h5>Phone</h5>
+                                <p><a href="tel:+917666862678" class="text-decoration-none">+91 7666862678</a></p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex mb-4">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <p><a href="mailto:info@hastagcafe.com"
+                                        class="text-decoration-none">info@hastagcafe.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <h5 class="mb-3">Opening Hours</h5>
+                            <ul class="opening-hours">
+                                <li><span>Monday - Sunday</span> <span>8:00 AM - 11:00 PM</span></li>
+                                <!-- <li><span>Saturday</span> <span>9:00 AM - 11:00 PM</span></li> -->
+                                <!-- <li><span>Sunday</span> <span>9:00 AM - 11:00 PM</span></li> -->
+                            </ul>
+                        </div>
+                        <!-- <div>
+                            <h5 class="mb-3">Connect With Us</h5>
+                            <div class="social-media-links">
+                                <a href="https://facebook.com/hastagcafe" target="_blank" class="social-icon me-3"
+                                    title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://instagram.com/hastagcafe" target="_blank" class="social-icon me-3"
+                                    title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://twitter.com/hastagcafe" target="_blank" class="social-icon me-3"
+                                    title="X (Twitter)">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://wa.me/917666862678" target="_blank" class="social-icon"
+                                    title="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="contact-form bg-white p-5 rounded-3 shadow">
+                        <h4 class="mb-4">Send Us a Message</h4>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control mb-4" id="name" placeholder="Your Name"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control mb-4" id="email" placeholder="Your Email"
+                                        required>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control mb-4" id="subject" placeholder="Subject" required>
+                            <textarea class="form-control mb-4" rows="5" id="message" placeholder="Your Message"
+                                required></textarea>
+                            <button type="submit" class="btn btn-primary w-100 py-3">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="map-container rounded-3 overflow-hidden shadow">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.441676553849!2d76.2237223153677!3d18.45450907593583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc8d1c9b9b9b9b9%3A0x3bc8d1c9b9b9b9b9!2sThe%20Hastag%20Cafe%20And%20Restaurant!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table Booking Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookingModalLabel">
+                        <i class="fas fa-calendar-alt me-2 text-warning"></i>Book Your Table
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="bookingForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="bookingName" class="form-label">Full Name *</label>
+                                <input type="text" class="form-control" id="bookingName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="bookingEmail" class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" id="bookingEmail" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="bookingPhone" class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" id="bookingPhone" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="bookingGuests" class="form-label">Number of Guests *</label>
+                                <select class="form-control" id="bookingGuests" required>
+                                    <option value="">Select guests</option>
+                                    <option value="1">1 Guest</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                    <option value="5">5 Guests</option>
+                                    <option value="6">6 Guests</option>
+                                    <option value="7">7 Guests</option>
+                                    <option value="8">8 Guests</option>
+                                    <option value="more">More than 8</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="bookingDate" class="form-label">Preferred Date *</label>
+                                <input type="date" class="form-control" id="bookingDate" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="bookingTime" class="form-label">Preferred Time *</label>
+                                <select class="form-control" id="bookingTime" required>
+                                    <option value="">Select time</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="11:30">11:30 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="12:30">12:30 PM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="13:30">1:30 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="14:30">2:30 PM</option>
+                                    <option value="15:00">3:00 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="18:30">6:30 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="19:30">7:30 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="20:30">8:30 PM</option>
+                                    <option value="21:00">9:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookingOccasion" class="form-label">Special Occasion (Optional)</label>
+                            <select class="form-control" id="bookingOccasion">
+                                <option value="">None</option>
+                                <option value="birthday">Birthday</option>
+                                <option value="anniversary">Anniversary</option>
+                                <option value="date">Date Night</option>
+                                <option value="business">Business Meeting</option>
+                                <option value="celebration">Celebration</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookingRequests" class="form-label">Special Requests</label>
+                            <textarea class="form-control" id="bookingRequests" rows="3"
+                                placeholder="Dietary restrictions, seating preferences, or any other special requests..."></textarea>
+                        </div>
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <small>Please note that this is a reservation request. We will confirm your booking via
+                                email or phone within 24 hours.</small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" form="bookingForm" class="btn btn-primary">
+                        <i class="fas fa-paper-plane me-2"></i>Send Reservation Request
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <a href="#" class="footer-logo">
+                        <span>#</span>The Hastag Cafe
+                    </a>
+                    <p class="mt-3">A premier dining destination in Ashti offering exceptional food, warm hospitality,
+                        and memorable experiences since 2015.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-x"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#specials">Specials</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+                    <h5 class="mb-4">Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Dine-In</a></li>
+                        <li><a href="#delivery">Home Delivery</a></li>
+                        <li><a href="#">Takeaway</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Catering</a></li>
+                        <li><a href="#">Private Dining</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4">
+                    <h5 class="mb-4">Newsletter</h5>
+                    <p>Subscribe to our newsletter for updates on special offers, events, and new menu items.</p>
+                    <form class="newsletter-form mt-4">
+                        <input type="email" class="form-control mb-3" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2025 The Hastag Cafe And Restaurant. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="position-fixed bottom-3 end-3" style="z-index: 11">
+        <a href="https://wa.me/917666862678"
+            class="btn btn-success btn-lg rounded-circle floating d-flex align-items-center justify-content-center"
+            target="_blank" style="width: 60px; height: 60px;">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#"
+        class="position-fixed bottom-3 end-3 btn btn-primary rounded-circle d-flex align-items-center justify-content-center floating"
+        style="width: 50px; height: 50px; z-index: 10; right: 80px;">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap 5.3 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Owl Carousel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });        // Initialize testimonial carousel
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 30,
+                nav: true,
+                navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 4000,
+                autoplayHoverPause: true,
+                smartSpeed: 800,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    768: {
+                        items: 2
+                    },
+                    1200: {
+                        items: 3
+                    }
+                }
+            });
+        });
+
+        // Animated counter for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+
+        // Initialize counter animation when stats section is in view
+        const statsSection = document.querySelector('.stats-section');
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                animateCounters();
+                observer.unobserve(statsSection);
+            }
+        });
+
+        observer.observe(statsSection);
+
+        // Back to top button
+        const backToTopButton = document.querySelector('.btn-arrow-up');
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'flex';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });        // Initialize lightbox
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'albumLabel': 'Image %1 of %2'
+        });        // EmailJS initialization
+        // To set up EmailJS:
+        // 1. Create an account at https://www.emailjs.com/
+        // 2. Create an email service (Gmail, Outlook, etc.)
+        // 3. Create email templates for contact form and booking form
+        // 4. Replace the placeholders below with your actual EmailJS credentials
+        (function () {
+            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+        })();        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                const loadingOverlay = document.getElementById('loadingOverlay');
+
+                // Show loading overlay
+                loadingOverlay.classList.add('show');
+
+                // Show loading state on button
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+                submitBtn.disabled = true;
+
+                const templateParams = {
+                    from_name: document.getElementById('name').value,
+                    from_email: document.getElementById('email').value,
+                    subject: document.getElementById('subject').value,
+                    message: document.getElementById('message').value,
+                    to_email: 'nageshsonawane870@gmail.com'
+                };
+
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                    .then(function (response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        showAlert('success', 'Message sent successfully! We\'ll get back to you soon.');
+                        contactForm.reset();
+                        // Remove validation classes
+                        contactForm.querySelectorAll('.is-valid, .is-invalid').forEach(el => {
+                            el.classList.remove('is-valid', 'is-invalid');
+                        });
+                    }, function (error) {
+                        console.log('FAILED...', error);
+                        showAlert('error', 'Failed to send message. Please try again or contact us directly.');
+                    })
+                    .finally(function () {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        loadingOverlay.classList.remove('show');
+                    });
+            });
+        }        // Table booking form submission
+        const bookingForm = document.getElementById('bookingForm');
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Validate form first
+                if (!validateBookingForm()) {
+                    showAlert('error', 'Please fill in all required fields correctly.');
+                    return;
+                }
+
+                const submitBtn = bookingForm.closest('.modal').querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                const loadingOverlay = document.getElementById('loadingOverlay');
+
+                // Show loading overlay
+                loadingOverlay.classList.add('show');
+
+                // Show loading state
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+                submitBtn.disabled = true;
+
+                const templateParams = {
+                    booking_name: document.getElementById('bookingName').value,
+                    booking_email: document.getElementById('bookingEmail').value,
+                    booking_phone: document.getElementById('bookingPhone').value,
+                    booking_guests: document.getElementById('bookingGuests').value,
+                    booking_date: document.getElementById('bookingDate').value,
+                    booking_time: document.getElementById('bookingTime').value,
+                    booking_occasion: document.getElementById('bookingOccasion').value || 'None',
+                    booking_requests: document.getElementById('bookingRequests').value || 'None',
+                    to_email: 'nageshsonawane870@gmail.com'
+                };
+
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_BOOKING_TEMPLATE_ID', templateParams)
+                    .then(function (response) {
+                        console.log('BOOKING SUCCESS!', response.status, response.text);
+                        showAlert('success', 'Reservation request sent successfully! We\'ll confirm your booking within 24 hours.');
+                        bookingForm.reset();
+                        // Remove validation classes
+                        bookingForm.querySelectorAll('.is-valid, .is-invalid').forEach(el => {
+                            el.classList.remove('is-valid', 'is-invalid');
+                        });
+                        // Close modal
+                        const modal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
+                        modal.hide();
+                    }, function (error) {
+                        console.log('BOOKING FAILED...', error);
+                        showAlert('error', 'Failed to send reservation request. Please try again or call us directly.');
+                    })
+                    .finally(function () {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        loadingOverlay.classList.remove('show');
+                    });
+            });
+        }// Set minimum date for booking to today
+        const bookingDateInput = document.getElementById('bookingDate');
+        if (bookingDateInput) {
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            bookingDateInput.min = tomorrow.toISOString().split('T')[0];
+
+            // Set maximum date to 3 months from now
+            const maxDate = new Date(today);
+            maxDate.setMonth(maxDate.getMonth() + 3);
+            bookingDateInput.max = maxDate.toISOString().split('T')[0];
+        }
+
+        // Form validation improvements
+        function validateBookingForm() {
+            const form = document.getElementById('bookingForm');
+            const requiredFields = form.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    field.classList.remove('is-invalid');
+                }
+            });
+
+            return isValid;
+        }
+
+        // Real-time validation
+        document.querySelectorAll('#bookingForm [required]').forEach(field => {
+            field.addEventListener('blur', function () {
+                if (this.value.trim()) {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                } else {
+                    this.classList.add('is-invalid');
+                    this.classList.remove('is-valid');
+                }
+            });
+        });
+
+        // Phone number formatting
+        const phoneInput = document.getElementById('bookingPhone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length >= 10) {
+                    value = value.substring(0, 10);
+                    e.target.value = value.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+                }
+            });
+        }        // Alert notification function
+        function showAlert(type, message) {
+            // Remove any existing alerts
+            const existingAlert = document.querySelector('.custom-alert');
+            if (existingAlert) {
+                existingAlert.remove();
+            }
+
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type === 'success' ? 'success' : 'danger'} alert-dismissible fade show custom-alert`;
+            alertDiv.style.cssText = 'position: fixed; top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'} me-2"></i>
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+
+            document.body.appendChild(alertDiv);
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (alertDiv && alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 5000);
+        }
+
+        // Quick Order Button Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const quickOrderButtons = document.querySelectorAll('.quick-order-btn');
+
+            quickOrderButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const menuCard = this.closest('.menu-card');
+                    const dishName = menuCard.querySelector('h5').textContent;
+                    const price = menuCard.querySelector('.price').textContent;
+
+                    // Show success message
+                    showAlert('success', `${dishName} (${price}) added to cart! Call us at +91 7666862678 to place your order.`);
+
+                    // Add animation effect
+                    this.innerHTML = '<i class="fas fa-check me-1"></i>Added!';
+                    this.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+
+                    // Reset button after 2 seconds
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-shopping-cart me-1"></i>Quick Order';
+                        this.style.background = '';
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
